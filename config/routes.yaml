@@ -1,3 +1,28 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+
+REDIRECT_CONTACT:
+    path: /contacte-les-déesses
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
+    defaults:
+        route: CONTACT
+        permanent: true
+        keepRequestMethod: true
+
+REDIRECT_SHOP:
+    path: /shop
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
+    defaults:
+        route: SHOP
+        permanent: true
+        keepRequestMethod: true
+
+REDIRECT_IDEAS:
+    path: /quelques-idées-partagées
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
+    defaults:
+        route: IDEAS
+        permanent: true
+        keepRequestMethod: true

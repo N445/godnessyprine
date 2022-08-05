@@ -1,0 +1,15 @@
+#top-banner {
+  background-image:  url("./../../images/quatres-sirops.png");
+  background-repeat: no-repeat;
+  background-size:   cover;
+  padding:           100px 0;
+
+  .overlay {
+    .card {
+      padding:          100px 50px;
+      background-color: rgba(white, .8);
+      text-align:       center;
+      border-radius:    15px;
+    }
+  }
+}

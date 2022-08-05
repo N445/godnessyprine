@@ -1,1 +1,54 @@
+@import "variables";
+
+@import "fonts/indie";
+@import "fonts/kalam";
+@import "fonts/mali";
+@import "fonts/snell";
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+//$body-bg: #000;
+//$body-color: #111;
+
+// 2. Include any default variable overrides here
+
+$font-family-base:         'Mali';
+$border-color-translucent: rgba($custom-primary, .5);
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/scss/variables";
+
+// Create your own map
+$custom-colors:            (
+                                   "custom-primary": $custom-primary,
+                                   "custom-secondary": $custom-secondary,
+                                   "custom-accent": $custom-accent,
+                                   "custom-dark": $custom-dark,
+                           );
+
+// Merge the maps
+$theme-colors:             map-merge($theme-colors, $custom-colors);
+
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
 @import "bootstrap";
+
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/v4-shims";
+
+@import 'animate.css';
+
+@import "globals";
+@import "navigation";
+
+@import "pages/homepage";

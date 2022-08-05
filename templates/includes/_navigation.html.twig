@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-white my-5 sticky-top">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav w-100">
+                <li class="nav-item flex-grow-1 text-center">
+                    <a class="{{ html_classes('nav-link',{'active':'HOMEPAGE'==app.request.get('_route')}) }}"
+                       aria-current="page" href="{{ path('HOMEPAGE') }}">
+                        Des sirops et des femmes
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1 text-center">
+                    <a class="{{ html_classes('nav-link',{'active':'ABOUT'==app.request.get('_route')}) }}"
+                       aria-current="page" href="{{ path('ABOUT') }}">
+                        Viens, je te dis tout...
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1 text-center">
+                    <a class="{{ html_classes('nav-link',{'active':'CONTACT'==app.request.get('_route')}) }}"
+                       aria-current="page" href="{{ path('CONTACT') }}">
+                        Contacte les Déesses
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1 text-center">
+                    <a class="{{ html_classes('nav-link',{'active':'SHOP'==app.request.get('_route')}) }}"
+                       aria-current="page" href="{{ path('SHOP') }}">
+                        Les Déesses
+                    </a>
+                </li>
+                <li class="nav-item flex-grow-1 text-center">
+                    <a class="{{ html_classes('nav-link',{'active':'IDEAS'==app.request.get('_route')}) }}"
+                       aria-current="page" href="{{ path('IDEAS') }}">
+                        Quelques idées partagées
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

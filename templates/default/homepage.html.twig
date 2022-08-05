@@ -1,0 +1,21 @@
+{% import 'macro/_product-macros.html.twig' as productMacro %}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'includes/homepage/_top-banner.html.twig' %}
+
+    <div class="container my-5">
+        <p class="lead-text mb-5">
+            Le premier <strong>sirop</strong> qui met à l'honneur le <strong>féminin</strong> et la nature, <strong>100%
+                naturel</strong>, sans conservateur, sans colorant et sans arôme artificiel.
+        </p>
+        <div class="row row-cols-4">
+            {% for i in 1..4 %}
+                <div class="col">
+                    {{ productMacro.card() }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

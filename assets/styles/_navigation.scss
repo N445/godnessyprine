@@ -1,0 +1,20 @@
+nav {
+  &.navbar {
+    .nav-link {
+      border-radius:    100px 30px 100px 30px;
+      background-color: rgba($custom-primary, 0);
+      transition:       .2s;
+      border:           rgba($custom-primary, .3) 1px solid;
+
+      &:hover {
+        background-color: rgba($custom-primary, .3);
+        border:           rgba($custom-primary, .6) 1px solid;
+      }
+
+      &.active {
+        background-color: rgba($custom-primary, .5);
+        border:           rgba($custom-primary, .9) 1px solid;
+      }
+    }
+  }
+}

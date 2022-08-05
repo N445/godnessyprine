@@ -1,0 +1,93 @@
+.main-title {
+  /* h1 */
+  font-family: 'Snell Roundhand';
+  font-weight: 400;
+  font-size:   96px;
+  line-height: 117px;
+
+  /* identical to box height */
+  text-align:  center;
+
+  /* dark */
+  color:       $custom-dark;
+}
+
+.sub-title {
+  /* h2 */
+  //font-family: 'Kalam';
+  font-family: 'Mali';
+  //font-family: 'Indie Flower';
+  font-style:  normal;
+  font-weight: 700;
+  font-size:   24px;
+  line-height: 32px;
+  text-align:  center;
+
+  /* primay */
+  color:       $custom-primary;
+}
+
+.lead-text {
+  text-align: center;
+  font-size:  30px;
+}
+
+.main-cta {
+  background-color: $custom-primary;
+  font-weight:      bold;
+  text-transform:   uppercase;
+  border-radius:    100px 30px 100px 30px;
+  position:         relative;
+  border:           none;
+  font-size:        18px;
+  padding:          0.5rem 2rem;
+  color:            white;
+
+  &:hover {
+    color: white;
+
+    i {
+      animation:                 swing; /* referring directly to the animation's @keyframe declaration */
+      animation-duration:        2s; /* don't forget to set a duration! */
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .gradiant {
+    position:         absolute;
+    top:              0;
+    left:             0;
+    width:            100%;
+    height:           100%;
+    z-index:          10;
+    pointer-events:   none;
+    opacity:          0;
+    background-color: $custom-primary;
+    border-radius:    100px 30px 100px 30px;
+
+    // https://colordesigner.io/gradient-generator
+    background-image: radial-gradient(circle at center,
+            #CB74E0 0%,
+            #B294F8 27.5%,
+            #9DAFFF 40%,
+            #97C5FF 57.5%,
+            #A2D7FF 75%,
+            #BCE7FD 100%
+                      );
+    background-size:  200% 200%;
+    transition:       2s opacity;
+  }
+
+
+  &:hover {
+    .gradiant {
+      opacity: 1;
+    }
+  }
+
+  .text {
+    pointer-events: none;
+    position:       relative;
+    z-index:        20;
+  }
+}
