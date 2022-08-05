@@ -1,11 +1,13 @@
-{% macro card() %}
-    <div class="card">
-        <img src="{{ asset('images/fake-picture.png') }}" class="card-img-top" alt="...">
+{% macro card(sirop) %}
+    <div class="card sirop-card">
+        <img src="{{ vich_uploader_asset(sirop.images|first) }}" class="card-img-top" alt="...">
         <div class="card-body text-center">
             <h5 class="card-title">
-                <strong>Vénus</strong>
+                <a href="{{ path('SIROP_SHOW', {'slug': sirop.urlSlug}) }}">
+                    <strong>{{ sirop.title }}</strong>
+                </a>
             </h5>
-            <p class="card-text">13.00 €</p>
+            <p class="card-text">{{ sirop.price|displayPrice }}</p>
             <a href="#" class="btn btn-sm btn-custom-primary text-white w-100">
                 Ajouter au panier
             </a>

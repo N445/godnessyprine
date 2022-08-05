@@ -11,9 +11,9 @@
                 naturel</strong>, sans conservateur, sans colorant et sans arôme artificiel.
         </p>
         <div class="row row-cols-4">
-            {% for i in 1..4 %}
+            {% for sirop in sirops %}
                 <div class="col">
-                    {{ productMacro.card() }}
+                    {{ productMacro.card(sirop) }}
                 </div>
             {% endfor %}
         </div>

@@ -51,4 +51,6 @@ $theme-colors:             map-merge($theme-colors, $custom-colors);
 @import "globals";
 @import "navigation";
 
+@import "parts/sirop-card";
+
 @import "pages/homepage";

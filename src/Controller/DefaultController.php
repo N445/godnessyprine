@@ -2,16 +2,27 @@
 
 namespace App\Controller;
 
+use App\Repository\SiropRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
+    private SiropRepository $siropRepository;
+
+    public function __construct(
+        SiropRepository $siropRepository
+    )
+    {
+        $this->siropRepository = $siropRepository;
+    }
+
     #[Route('/', name: 'HOMEPAGE')]
     public function index(): Response
     {
         return $this->render('default/homepage.html.twig', [
+            'sirops' => $this->siropRepository->findAll(),
         ]);
     }
 
@@ -33,6 +44,17 @@ class DefaultController extends AbstractController
     public function shop(): Response
     {
         return $this->render('default/shop.html.twig', [
+        ]);
+    }
+
+    #[Route('/sirop/{slug}', name: 'SIROP_SHOW')]
+    public function siropShow(string $slug): Response
+    {
+        if (!$sirop = $this->siropRepository->getOneBySlug($slug)) {
+            return $this->redirectToRoute('SHOP');
+        }
+        return $this->render('default/sirop-show.html.twig', [
+            'sirop' => $sirop,
         ]);
     }
 
