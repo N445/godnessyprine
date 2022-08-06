@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Contact;
 use App\Entity\Sirop;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -43,6 +44,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-         yield MenuItem::linkToCrud('Sirops', 'fas fa-list', Sirop::class);
+         yield MenuItem::linkToCrud('Sirops', 'fa-solid fa-bottle-droplet', Sirop::class);
+         yield MenuItem::linkToCrud('Contacts', 'fa-solid fa-envelope', Contact::class);
     }
 }
