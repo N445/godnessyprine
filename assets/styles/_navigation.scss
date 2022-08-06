@@ -1,10 +1,13 @@
 nav {
+  background-image: linear-gradient(to right, rgba($custom-primary, .2), rgba($custom-secondary, .2));
+
   &.navbar {
     .nav-link {
       border-radius:    100px 30px 100px 30px;
       background-color: rgba($custom-primary, 0);
       transition:       .2s;
       border:           rgba($custom-primary, .3) 1px solid;
+      font-weight:      bold;
 
       &:hover {
         background-color: rgba($custom-primary, .3);

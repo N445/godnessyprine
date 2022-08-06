@@ -32,6 +32,11 @@
   font-size:  30px;
 }
 
+.custom-rounded {
+  border-radius: 2rem 1rem 2rem 1rem;
+  overflow:      hidden;
+}
+
 .main-cta {
   background-color: $custom-primary;
   font-weight:      bold;

@@ -22,6 +22,14 @@ class SiropRepository extends ServiceEntityRepository
         parent::__construct($registry, Sirop::class);
     }
 
+    public function allByDisplayOrder()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.displayOrder', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @param string $slug
      * @return Sirop|null

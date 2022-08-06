@@ -13,19 +13,23 @@
                 <div class="owl-carousel owl-theme">
                     {% for image in sirop.images %}
                         <a data-fancybox="sirop-main" href="{{ vich_uploader_asset(image) }}">
-                            <img src="{{ vich_uploader_asset(image) }}" alt="">
+                            <img src="{{ vich_uploader_asset(image) }}" alt="" class="custom-rounded">
                         </a>
                     {% endfor %}
                 </div>
             </div>
             <div class="col-md-6">
                 <h3>{{ sirop.title }}</h3>
-                <ul class="list-group">
-                    {% for ingredient in sirop.ingredients %}
-                        <li class="list-group-item">{{ ingredient }}</li>
-                    {% endfor %}
-                </ul>
+                <h4>Ingrédients</h4>
+                {{ sirop.ingredients|raw }}
+                <hr>
+                <h4>Déscription</h4>
                 {{ sirop.description|raw }}
+                <hr>
+                <button type="button" class="btn btn-custom-primary main-cta">
+                    <span class="gradiant"></span>
+                    <span class="text">Ajouter au panier <i class="fa-solid fa-bottle-droplet"></i></span>
+                </button>
             </div>
         </div>
     </div>

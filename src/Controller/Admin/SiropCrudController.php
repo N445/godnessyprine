@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -28,17 +29,17 @@ class SiropCrudController extends AbstractCrudController
     }
 
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            SlugField::new('urlSlug')->setTargetFieldName('title'),
-            MoneyField::new('price')->setCurrency('EUR'),
-            TextEditorField::new('description'),
-//            TextEditorField::new('description')->setFormType(CKEditorType::class),
-            AssociationField::new('ingredients'),
-            CollectionField::new('images')->useEntryCrudForm(),
+            TextField::new('title', 'Nom du sirop'),
+            IntegerField::new('displayOrder', 'Ordre d\'affichage'),
+            SlugField::new('urlSlug', 'Texte dans l\'URL')->setTargetFieldName('title')->setHelp('Sans accent ou caractères spécials'),
+            MoneyField::new('price', 'Prix')->setCurrency('EUR'),
+            TextEditorField::new('description', 'Description'),
+            //            TextEditorField::new('description')->setFormType(CKEditorType::class),
+            TextEditorField::new('ingredients', 'Ingrédients'),
+            CollectionField::new('images', 'Images')->useEntryCrudForm(),
         ];
     }
 }

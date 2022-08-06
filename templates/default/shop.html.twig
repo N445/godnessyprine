@@ -1,3 +1,5 @@
+{% import 'macro/_product-macros.html.twig' as productMacro %}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}
@@ -5,6 +7,14 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="container">
+    <div class="row row-cols-4">
+        {% for sirop in sirops %}
+            <div class="col">
+                {{ productMacro.card(sirop) }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
 

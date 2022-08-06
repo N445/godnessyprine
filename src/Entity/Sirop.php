@@ -27,8 +27,8 @@ class Sirop
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string             $description = null;
 
-    #[ORM\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'sirops')]
-    private Collection          $ingredients;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string             $ingredients = null;
 
     #[ORM\OneToMany(mappedBy: 'sirop', targetEntity: SiropImage::class, cascade: ['persist', 'remove'])]
     private Collection          $images;
@@ -38,6 +38,9 @@ class Sirop
 
     #[ORM\Column(length: 255)]
     private ?string             $urlSlug     = null;
+
+    #[ORM\Column]
+    private ?int $displayOrder = null;
 
     public function __construct()
     {
@@ -88,26 +91,20 @@ class Sirop
     }
 
     /**
-     * @return Collection<int, Ingredient>
+     * @return string|null
      */
-    public function getIngredients(): Collection
+    public function getIngredients(): ?string
     {
         return $this->ingredients;
     }
 
-    public function addIngredient(Ingredient $ingredient): self
+    /**
+     * @param string|null $ingredients
+     * @return Sirop
+     */
+    public function setIngredients(?string $ingredients): Sirop
     {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients->add($ingredient);
-        }
-
-        return $this;
-    }
-
-    public function removeIngredient(Ingredient $ingredient): self
-    {
-        $this->ingredients->removeElement($ingredient);
-
+        $this->ingredients = $ingredients;
         return $this;
     }
 
@@ -161,6 +158,18 @@ class Sirop
     public function setUrlSlug(string $urlSlug): self
     {
         $this->urlSlug = $urlSlug;
+
+        return $this;
+    }
+
+    public function getDisplayOrder(): ?int
+    {
+        return $this->displayOrder;
+    }
+
+    public function setDisplayOrder(int $displayOrder): self
+    {
+        $this->displayOrder = $displayOrder;
 
         return $this;
     }

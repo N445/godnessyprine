@@ -22,7 +22,7 @@ class DefaultController extends AbstractController
     public function index(): Response
     {
         return $this->render('default/homepage.html.twig', [
-            'sirops' => $this->siropRepository->findAll(),
+            'sirops' => $this->siropRepository->allByDisplayOrder(),
         ]);
     }
 
@@ -44,6 +44,7 @@ class DefaultController extends AbstractController
     public function shop(): Response
     {
         return $this->render('default/shop.html.twig', [
+            'sirops' => $this->siropRepository->allByDisplayOrder(),
         ]);
     }
 
