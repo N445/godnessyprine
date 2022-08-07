@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white my-5 sticky-top shadow">
+<nav class="navbar navbar-expand-lg bg-white mt-5 sticky-top shadow">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,21 @@
                         Quelques idées partagées
                     </a>
                 </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item flex-grow-1 text-center">
+                        <a class="{{ html_classes('nav-link',{'active':'PROFILE'==app.request.get('_route')}) }}"
+                           aria-current="page" href="{{ path('PROFILE') }}">
+                            Mon profile
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item flex-grow-1 text-center">
+                        <a class="{{ html_classes('nav-link',{'active':'app_login'==app.request.get('_route')}) }}"
+                           aria-current="page" href="{{ path('app_login') }}">
+                            Me connecter
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

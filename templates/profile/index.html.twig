@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma page - {{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Mon profile
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    Mes commandes
+                </a>
+                <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action">
+                    Déconnexion
+                </a>
+            </div>
+        </div>
+        <div class="col-md">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
